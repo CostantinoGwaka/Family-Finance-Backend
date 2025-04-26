@@ -39,6 +39,22 @@ public class BillsAServicesImpl implements BillsServices {
     }
 
     @Override
+    public Bills updateUserBills(Bills bill) {
+
+        Bills updateUserBills;
+
+        final boolean doesBillExist = billsRepository.existsById(bill.getId());
+
+        if (!doesBillExist) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Bills not found!");
+        }
+
+        updateUserBills = billsRepository.save(bill);
+        return updateUserBills;
+
+    }
+
+    @Override
     public List<Bills> getAllBillByUserId(String userId) {
         List<Bills> bills = billsRepository.findByUserId(userId);
 

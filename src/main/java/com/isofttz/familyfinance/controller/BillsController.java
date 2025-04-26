@@ -23,6 +23,12 @@ public class BillsController {
         return new ResponseModel<>(HttpStatus.OK.value(), "bills registered successfully",savedBills);
     }
 
+    @PutMapping("/update")
+    public ResponseModel<Bills> updateUserBills(@RequestBody Bills bills) {
+        final Bills updatedBills = billsServices.updateUserBills(bills);
+        return new ResponseModel<>(HttpStatus.OK.value(), "bills updated successfully", updatedBills);
+    }
+
     @GetMapping("/getBills/{userId}")
     public ResponseModel<List<Bills>> getUserBills(@PathVariable(name = "userId") String userId){
         final List<Bills> savedBills = billsServices.getAllBillByUserId(userId);

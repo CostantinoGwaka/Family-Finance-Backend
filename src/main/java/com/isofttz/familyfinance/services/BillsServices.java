@@ -8,6 +8,8 @@ public interface BillsServices {
 
     Bills registerUserBills(Bills bills);
 
+    Bills updateUserBills(Bills bills);
+
     List<Bills> getAllBillByUserId(String userId);
 
     Boolean deleteUserBillById(Long billId);

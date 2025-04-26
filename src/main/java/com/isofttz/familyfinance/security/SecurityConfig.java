@@ -43,6 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**")
                         .permitAll()
                                 .requestMatchers("/api/bills/**").authenticated()
+                                .requestMatchers("/api/budget/**").authenticated()
 //                        .requestMatchers(HttpMethod.POST,
 //                                "/api/bills/add","/api/bills/getBills")
 //                        .authenticated()
