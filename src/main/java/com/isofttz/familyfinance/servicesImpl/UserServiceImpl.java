@@ -1,0 +1,47 @@
+package com.isofttz.familyfinance.servicesImpl;
+
+import com.isofttz.familyfinance.entities.Users;
+import com.isofttz.familyfinance.repository.AppUserRepository;
+import com.isofttz.familyfinance.services.UserServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Service
+public class UserServiceImpl implements UserServices {
+
+    @Autowired
+    AppUserRepository appUserRepository;
+
+    @Override
+    public Users registerUser(Users users) {
+
+        final Users userData;
+
+        final boolean doesUserExist = appUserRepository.existsByPhone(users.getPhone());
+
+        if(doesUserExist){
+            userData = appUserRepository.findByPhone(users.getPhone()).orElseThrow();
+        }else{
+
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encryptedPassword = passwordEncoder.encode(users.getPassword());
+            users.setPassword(encryptedPassword);
+
+            userData = appUserRepository.save(users);
+        }
+
+        return userData;
+    }
+
+    @Override
+    public List<Users> getAllRegisteredUser() {
+        return appUserRepository.findAll();
+    }
+
+
+}
