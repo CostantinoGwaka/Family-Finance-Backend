@@ -42,15 +42,13 @@ public class SecurityConfig {
                         .permitAll()
                         .requestMatchers("/api/auth/**")
                         .permitAll()
-                        .requestMatchers(HttpMethod.POST,
-                                "/api/bus/add",
-                                "api/stand/add",
-                                "api/schedule/add",
-                                "api/route/add")
-                        .authenticated()
-                        .requestMatchers(HttpMethod.POST,
-                                "/api/reservation/add")
-                        .permitAll()
+                                .requestMatchers("/api/bills/**").authenticated()
+//                        .requestMatchers(HttpMethod.POST,
+//                                "/api/bills/add","/api/bills/getBills")
+//                        .authenticated()
+//                        .requestMatchers(HttpMethod.POST,
+//                                "/api/reservation/add")
+//                        .permitAll()
 
                 )
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtEntryPoint))
