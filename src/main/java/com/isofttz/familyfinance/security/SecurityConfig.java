@@ -47,6 +47,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/budget/**").authenticated()
                         .requestMatchers("/api/category/**").authenticated()
                         .requestMatchers("/api/income/**").authenticated()
+                        .requestMatchers("/api/transactions/**").authenticated()
 
 
 //                        .requestMatchers(HttpMethod.POST,

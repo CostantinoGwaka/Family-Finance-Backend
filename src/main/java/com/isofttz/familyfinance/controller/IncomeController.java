@@ -47,8 +47,8 @@ public class IncomeController {
 
 
     @GetMapping("/getIncomeById/{incomeId}")
-    public ResponseModel<Income> findUserIncomeById(@PathVariable(name = "incomeId") Long Income){
-        final Income incomes = incomeServices.findIncomeById(Income);
+    public ResponseModel<Income> findUserIncomeById(@PathVariable(name = "incomeId") Long incomeId){
+        final Income incomes = incomeServices.findIncomeById(incomeId);
         return new ResponseModel<>(HttpStatus.OK.value(), "Income found successfully", incomes);
     }
 
