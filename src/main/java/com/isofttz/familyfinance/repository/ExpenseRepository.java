@@ -10,5 +10,10 @@ import java.util.List;
 public interface ExpenseRepository extends JpaRepository<Expenses,Long> {
 
 
+    List<Expenses> findByUserId(String userId);
+
+    boolean existsById(Long expenseId);
+
+    Expenses findExpensesById(Long expenseId);
 
 }
