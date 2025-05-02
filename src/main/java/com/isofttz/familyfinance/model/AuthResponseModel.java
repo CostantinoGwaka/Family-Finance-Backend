@@ -1,9 +1,11 @@
 package com.isofttz.familyfinance.model;
 
+import com.isofttz.familyfinance.entities.Users;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.userdetails.User;
 
 @Getter
 @Setter
@@ -19,5 +21,7 @@ public class AuthResponseModel {
     private Long loginTime;
 
     private Long expirationDuration;
+
+    private Users userDetails;
 }
 

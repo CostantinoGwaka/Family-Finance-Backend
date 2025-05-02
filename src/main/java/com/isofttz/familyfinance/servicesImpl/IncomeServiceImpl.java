@@ -23,16 +23,20 @@ public class IncomeServiceImpl implements IncomeServices {
     @Override
     public Income registerUserIncome(Income income) {
 
-        Income savedIncome;
-
         final boolean doesUserExist = appUserRepository.existsById(Long.valueOf(income.getUserId()));
 
         if (!doesUserExist) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "User not found!");
         }
 
-        savedIncome = incomeRepository.save(income);
-        return savedIncome;
+        Income newIncome = new Income();
+        newIncome.setUserId(income.getUserId());
+        newIncome.setAmount(income.getAmount());
+        newIncome.setSource(income.getSource());
+        newIncome.setReceivedOn(income.getReceivedOn());
+        newIncome.setNotes(income.getNotes());
+
+        return incomeRepository.save(newIncome);
 
     }
 

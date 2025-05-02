@@ -14,4 +14,5 @@ public interface AppUserRepository extends JpaRepository<Users,Long> {
 
     Optional<Users> findByPhone(String phone);
 
+
 }

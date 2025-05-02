@@ -19,6 +19,9 @@ public class Users {
     private Long id;
 
     @Column(nullable = false)
+    private String countryCode;
+
+    @Column(nullable = false)
     private String userFullName;
 
     @Column(nullable = false)

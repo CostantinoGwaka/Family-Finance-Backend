@@ -24,8 +24,10 @@ public class Expenses {
     @Column(nullable = false)
     private Long amount;
 
-    @Column(nullable = false)
-    private String categoryId;
+    @ManyToOne
+//            (fetch = FetchType.LAZY) // <-- many expenses can share one category
+    @JoinColumn(name = "category_id", nullable = false)
+    private Categories category;
 
     @Column(nullable = false)
     private String spentOn;
