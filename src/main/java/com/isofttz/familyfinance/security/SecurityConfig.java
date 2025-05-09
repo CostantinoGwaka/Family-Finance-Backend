@@ -50,14 +50,6 @@ public class SecurityConfig {
                         .requestMatchers("/api/transactions/**").authenticated()
                         .requestMatchers("/api/expense/**").authenticated()
 
-
-//                        .requestMatchers(HttpMethod.POST,
-//                                "/api/bills/add","/api/bills/getBills")
-//                        .authenticated()
-//                        .requestMatchers(HttpMethod.POST,
-//                                "/api/reservation/add")
-//                        .permitAll()
-
                 )
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtEntryPoint))
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

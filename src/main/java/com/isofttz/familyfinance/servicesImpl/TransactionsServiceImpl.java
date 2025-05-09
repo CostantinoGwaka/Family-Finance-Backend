@@ -1,13 +1,10 @@
 package com.isofttz.familyfinance.servicesImpl;
 
-import com.isofttz.familyfinance.entities.Income;
 import com.isofttz.familyfinance.entities.Transactions;
 import com.isofttz.familyfinance.model.ApiException;
 import com.isofttz.familyfinance.repository.AppUserRepository;
-import com.isofttz.familyfinance.repository.IncomeRepository;
 import com.isofttz.familyfinance.repository.TransactionsRepository;
 import com.isofttz.familyfinance.services.TransactionsServices;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
