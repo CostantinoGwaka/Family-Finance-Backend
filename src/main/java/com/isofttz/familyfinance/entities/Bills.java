@@ -40,6 +40,10 @@ public class Bills {
 //    'monthly' | 'weekly' | 'none'
     private String repeatInterval;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Categories category;
+
     @Column(nullable = false)
     private String createdAt;
 

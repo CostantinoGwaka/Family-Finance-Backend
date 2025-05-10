@@ -25,8 +25,11 @@ public class Income {
     private Long amount;
 
     @Column(nullable = false)
-//    Source name (e.g., Job)
     private String source;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Categories category;
 
     @Column(nullable = false)
     private String receivedOn;

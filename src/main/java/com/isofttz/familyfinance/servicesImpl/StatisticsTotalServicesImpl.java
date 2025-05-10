@@ -31,6 +31,12 @@ public class StatisticsTotalServicesImpl implements StatisticsTotalServices {
     }
 
     @Override
+    public int getTotalIncomeByUser(String userId) {
+        Integer total = expenseRepository.getTotalIncomeByUserId(userId);
+        return total != null ? total : 0;
+    }
+
+    @Override
     public int getTotalIncomesByUser(String userId) {
         Integer total = incomeRepository.getTotalIncomeByUserId(userId);
         return total != null ? total : 0;

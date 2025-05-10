@@ -25,7 +25,6 @@ public class Expenses {
     private Long amount;
 
     @ManyToOne
-//            (fetch = FetchType.LAZY) // <-- many expenses can share one category
     @JoinColumn(name = "category_id", nullable = false)
     private Categories category;
 

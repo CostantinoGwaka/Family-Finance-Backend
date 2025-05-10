@@ -49,6 +49,7 @@ public class SecurityConfig {
                         .requestMatchers("/family-finance/api/income/**").authenticated()
                         .requestMatchers("/family-finance/api/transactions/**").authenticated()
                         .requestMatchers("/family-finance/api/expense/**").authenticated()
+                        .requestMatchers("/family-finance/api/statisticsTotal/**").authenticated()
 
                 )
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtEntryPoint))

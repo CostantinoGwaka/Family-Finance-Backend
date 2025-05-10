@@ -26,8 +26,9 @@ public class Transactions {
 //    'income' | 'expense'
     private String type;
 
-    @Column(nullable = false)
-    private String category;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Categories category;
 
     @Column(nullable = false)
     private Long amount;

@@ -21,8 +21,9 @@ public class Budget {
     @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false)
-    private String categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Categories category;
 
     @Column(nullable = false)
 //    Month/year

@@ -24,4 +24,7 @@ public interface ExpenseRepository extends JpaRepository<Expenses,Long> {
     @Query("SELECT SUM(t.amount) FROM Expenses t WHERE t.userId = :userId AND t.category.type = 'expense'")
     Integer getTotalExpenseTypeByUserId(@Param("userId") String userId);
 
+    @Query("SELECT SUM(t.amount) FROM Income t WHERE t.userId = :userId")
+    Integer getTotalIncomeByUserId(@Param("userId") String userId);
+
 }

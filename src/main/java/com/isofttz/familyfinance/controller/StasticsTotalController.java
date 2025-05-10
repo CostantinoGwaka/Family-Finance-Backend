@@ -22,14 +22,6 @@ public class StasticsTotalController {
     @Autowired
     StatisticsTotalServices statisticsTotalServices;
 
-
-    // Endpoint to get total expense for all users
-//    @GetMapping("/total-expense")
-//    public ResponseEntity<Integer> getTotalExpense() {
-//        int total = statisticsTotalServices.getTotalExpense();
-//        return ResponseEntity.ok(total);
-//    }
-
     // Endpoint to get total expense by user ID
     @GetMapping("/total/{userId}")
     public ResponseEntity<ResponseModel<List<TotalSummaryDTO>>> getTotalByUser(@PathVariable String userId) {
@@ -44,6 +36,20 @@ public class StasticsTotalController {
                 new TotalSummaryDTO("budget",totalBudget ),
                 new TotalSummaryDTO("bills",totalBill)
         );
+
+        ResponseModel<List<TotalSummaryDTO>> response = new ResponseModel<>(
+                HttpStatus.OK.value(),
+                "User totals fetched successfully",
+                totals
+        );
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/income/{userId}")
+    public ResponseEntity<ResponseModel<List<TotalSummaryDTO>>> getTotalIncomeByUser(@PathVariable String userId) {
+        int totalIncome = statisticsTotalServices.getTotalIncomeByUser(userId);
+
+        List<TotalSummaryDTO> totals = List.of(new TotalSummaryDTO("income", totalIncome));
 
         ResponseModel<List<TotalSummaryDTO>> response = new ResponseModel<>(
                 HttpStatus.OK.value(),
