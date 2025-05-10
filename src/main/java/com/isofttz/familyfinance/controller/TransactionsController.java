@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/transactions")
+@RequestMapping("/family-finance/api/transactions")
 public class TransactionsController {
 
     @Autowired

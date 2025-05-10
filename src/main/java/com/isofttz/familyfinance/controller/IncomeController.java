@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/income")
+@RequestMapping("/family-finance/api/income")
 public class IncomeController {
 
     @Autowired
