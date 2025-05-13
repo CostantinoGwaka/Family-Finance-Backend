@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "bills")
+@Table(name = "`bills`")
 public class Bills {
 
     @Id
@@ -41,7 +41,7 @@ public class Bills {
     private String repeatInterval;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     private Categories category;
 
     @Column(nullable = false)

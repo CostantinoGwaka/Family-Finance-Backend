@@ -28,7 +28,7 @@ public class Income {
     private String source;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     private Categories category;
 
     @Column(nullable = false)

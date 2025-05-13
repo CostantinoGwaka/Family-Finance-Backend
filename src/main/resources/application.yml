@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: family-finance
+  aop:
+    auto: false
 
 eureka:
   client:
